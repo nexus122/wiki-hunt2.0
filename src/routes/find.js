@@ -140,7 +140,12 @@ router.get('/buscar/:leng/:id/:objective', async function (req, res) {
     let objective = req.params.objective;
     if(id == objective){
         console.log("Has ganado");
-        res.json("Has ganado");
+        var resp = {
+            nombre: "Has Ganado 🥳",
+            info: `Solo has necesitado ${hilo.caminos.length} pasos para encontrar a ${objective}`,
+            links: '',
+        }
+        res.json(resp);
     }else{
         console.log(id);
         console.log("Busqueda: ", id);
