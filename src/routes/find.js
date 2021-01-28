@@ -142,7 +142,7 @@ router.get('/buscar/:leng/:id/:objective', async function (req, res) {
         console.log("Has ganado");
         var resp = {
             nombre: "Has Ganado 🥳",
-            info: `Solo has necesitado ${hilo.caminos.length} pasos para encontrar a ${objective}`,
+            info: '',            
             links: '',
         }
         res.json(resp);
