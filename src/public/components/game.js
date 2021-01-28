@@ -24,7 +24,7 @@ var game = new Vue({
   },methods: {
     buscar: function (termino, leng) {
       game.load = true;
-      fetch(`${url}/api/buscar/${leng}/${termino}/${election.objective}`, {
+      fetch(`${game.url}/api/buscar/${leng}/${termino}/${election.objective}`, {
         method: 'GET',
       }).then(response => {
         if (response.ok) {
@@ -43,7 +43,7 @@ var game = new Vue({
 })
 
 function random(leng) {  
-  fetch(`${url}/api/random/${leng}`, {
+  fetch(`${game.url}/api/random/${leng}`, {
     method: 'GET',
   }).then(response => {
     if (response.ok) {
