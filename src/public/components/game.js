@@ -16,7 +16,8 @@ var game = new Vue({
     load: true,
     leng: "es",
     show: false,
-    url: 'https://wiki-hunt.herokuapp.com'    
+    url: 'https://wiki-hunt.herokuapp.com',
+    url2: 'http://localhost:3000'    
   },
   created() {
     random(this.leng);
