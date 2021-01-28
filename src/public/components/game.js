@@ -15,14 +15,15 @@ var game = new Vue({
     term:'',
     load: true,
     leng: "es",
-    show: false    
+    show: false,
+    url: 'https://wiki-hunt.herokuapp.com'    
   },
   created() {
     random(this.leng);
   },methods: {
     buscar: function (termino, leng) {
       game.load = true;
-      fetch("http://localhost:3000/api/buscar/"+leng+"/"+termino+"/"+election.objective, {
+      fetch(`${url}/api/buscar/${leng}/${termino}/${election.objective}`, {
         method: 'GET',
       }).then(response => {
         if (response.ok) {
@@ -41,7 +42,7 @@ var game = new Vue({
 })
 
 function random(leng) {  
-  fetch("http://localhost:3000/api/random/"+leng, {
+  fetch(`${url}/api/random/${leng}`, {
     method: 'GET',
   }).then(response => {
     if (response.ok) {
