@@ -1,0 +1,26 @@
+.title {
+    font-family: 'Germania One', cursive;
+}
+
+.links ul{
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content:center;*/
+    margin: 0;
+    padding: 0;
+}
+
+.links li {
+    list-style: none;    
+    margin-left: 1em;
+    cursor: pointer;    
+    font-weight: 700;
+}
+
+li.breadcrumb-item {
+    cursor: pointer;
+}
+
+.fa-circle-notch{
+    font-size: 1em;
+}
