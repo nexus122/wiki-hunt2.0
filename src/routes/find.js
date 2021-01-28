@@ -154,7 +154,7 @@ router.get('/buscar/:leng/:id/:objective', async function (req, res) {
         if (infoRes.data == "nodata") {
             infoRes = "";
         }
-        var linksRes = await links(encode_utf8(id), leng, 1000);
+        var linksRes = await links(encode_utf8(id), leng, 600);
 
         var resp = {
             nombre: id,
