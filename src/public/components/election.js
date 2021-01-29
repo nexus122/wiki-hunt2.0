@@ -1,3 +1,18 @@
+Vue.use(VueScrollTo, {
+    container: "body",
+    duration: 200,
+    easing: "linear",
+    offset: 0,
+    force: true,
+    cancelable: true,
+    onStart: false,
+    onDone: false,
+    onCancel: false,
+    x: false,
+    y: true
+  })
+  
+
 const election = new Vue({
     el: '#election',
     template: `
@@ -11,14 +26,14 @@ const election = new Vue({
                 <h1 class="title">{{personaje.nombre}} <span class="load" v-if="load"><i class="fas fa-circle-notch fa-spin"></i></span></h1> 
                     <!--<div class="d-inline"><span v-for="categoria in personaje.categorias" class="badge rounded-pill bg-dark" style="margin-right: 1em;">{{categoria}}</span></div>-->
                     <div class="info mt-2">{{personaje.info.slice(0,400)}}...</div>                                      
-                    <button class="btn btn-dark d-block mt-3" v-on:click="show(personaje.nombre)">Jugar</button>                                
+                    <button v-scroll-to="'#top'" class="btn btn-dark d-block mt-3" v-on:click="show(personaje.nombre)">Jugar</button>                                
                 </div>
             </div>               
         </div>
         <h1 class="title mt-3">Busca uno tu mismo!</h1>
         <div class="input-group mb-3">
             <input v-model="objective" type="text" class="form-control" placeholder="A quien quieres buscar?">
-            <button class="btn btn-dark" type="button" v-on:click="show(objective)"><i class="fas fa-search"></i></button>
+            <button v-scroll-to="'#top'" class="btn btn-dark" type="button" v-on:click="show(objective)"><i class="fas fa-search"></i></button>
         </div>
     </div>
 `,
@@ -66,6 +81,7 @@ const election = new Vue({
         objective: ''
     },methods: {
         show: function (nombre) {
+            window.scrollTo(0, 0);
             console.log("Nombre: ", nombre);
             election.loadGame = false;
             election.objective = nombre;  

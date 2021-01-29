@@ -3,7 +3,7 @@ var hilo = new Vue({
     template: `
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" v-if="show">      
         <ol class="breadcrumb">
-            <li><span class="badge badge-pill badge-dark" style="background-color: rgb(52, 58, 64); margin-right: 1em;">{{caminos.length}}</span></li>
+            <li><span class="badge badge-pill badge-dark" style="background-color: rgb(52, 58, 64); margin-right: 1em;">{{caminos.length-1}}</span></li>
             <li v-for="camino in caminos" class="breadcrumb-item"><a style="crusor:pointer" v-on:click="buscar(camino)">{{camino}}</a></li>            
         </ol>
     </nav>

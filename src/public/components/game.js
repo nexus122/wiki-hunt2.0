@@ -11,6 +11,9 @@ Vue.use(VueScrollTo, {
   x: false,
   y: true
 })
+var finalNombre = '';
+var finalPasos = '';
+var finalUrl = '';
 
 var game = new Vue({
   el: '#game',
@@ -31,7 +34,10 @@ var game = new Vue({
       <div v-if="!win" class="links"><ul><li v-for="link in links" v-on:click="buscar(link, leng)" v-scroll-to="'#top'">{{link}}</li></ul></div>
 
       <div v-if="win">
-        <h3 class="title"> Has encontrado a {{nombre}} en {{pasos}} pasos !</h3>
+        <p class="title fs-3"> Has conseguido llegar desde <u>{{primero}}</u>  a <u>{{nombre}}</u> en solo <u>{{pasos}}</u> pasos !</p>
+        <p class="fs-4">Ayudame a que este juego llegue a mas gente retando a un amigo a hacerlo mejor que tu 😉</p>
+        <a class="btn btn-dark d-block" v-bind:href="finalUrl">Compartir en Whatsapp</a>
+        <a class="btn btn-outline-dark d-block" href="https://wiki-hunt.herokuapp.com" >Volver a Jugar</a>
       </div>
     </div>`,
   data: {
@@ -45,7 +51,9 @@ var game = new Vue({
     show: false,
     limit: '700',
     win: false,
-    pasos: ''
+    pasos: '',
+    primero: '',
+    finalUrl: ''
   },
   created() {
     random(this.leng);
@@ -65,10 +73,14 @@ var game = new Vue({
             game.links = response.links;
             game.linksBack = response.links;
             hilo.caminos.push(game.nombre)
-            game.pasos = hilo.caminos.length;
+            game.pasos = hilo.caminos.length-1;
             game.load = false;
             if(response.win == true){
               game.win = true;
+              finalNombre = game.nombre;
+              finalPasos = game.pasos;
+              finalUrl = "https://api.whatsapp.com/send?text=No%20hay%20huevos%20a%20encontrar%20a%20*"+finalNombre+"*%20en%20menos%20de%20*"+finalPasos+"*%20pasos%20en%20*https://wiki-hunt.herokuapp.com*";
+              game.finalUrl = finalUrl
             }
           });
         }
@@ -107,6 +119,7 @@ function random(leng) {
         game.links = response.links;
         game.linksBack = response.links;
         hilo.caminos.push(game.nombre)
+        game.primero = game.nombre;
         game.load = false;
       });
     }
