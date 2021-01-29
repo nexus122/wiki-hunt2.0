@@ -13,7 +13,8 @@ Vue.use(VueScrollTo, {
 })
 var finalNombre = '';
 var finalPasos = '';
-var finalUrl = '';
+var WhatsappUrl = '';
+var TwitterUrl = '';
 
 var game = new Vue({
   el: '#game',
@@ -36,8 +37,9 @@ var game = new Vue({
       <div v-if="win">
         <p class="title fs-3"> Has conseguido llegar desde <u>{{primero}}</u>  a <u>{{nombre}}</u> en solo <u>{{pasos}}</u> pasos !</p>
         <p class="fs-4">Ayudame a que este juego llegue a mas gente retando a un amigo a hacerlo mejor que tu 😉</p>
-        <a class="btn btn-dark d-block" v-bind:href="finalUrl">Compartir en Whatsapp</a>
-        <a class="btn btn-outline-dark d-block" href="https://wiki-hunt.herokuapp.com" >Volver a Jugar</a>
+          <a class="btn btn-success d-block mt-1" v-bind:href="WhatsappUrl" target="_blank">Reta a tus amigos en <i class="fab fa-whatsapp"></i></a>
+          <a class="btn btn-primary d-block mt-1" v-bind:href="TwitterUrl" target="_blank">Reta a tus amigos en <i class="fab fa-twitter"></i></a>
+          <a class="btn btn-dark d-block mt-1" href="https://wiki-hunt.herokuapp.com" >Volver a Jugar</a>
       </div>
     </div>`,
   data: {
@@ -53,7 +55,8 @@ var game = new Vue({
     win: false,
     pasos: '',
     primero: '',
-    finalUrl: ''
+    WhatsappUrl: '',
+    TwitterUrl
   },
   created() {
     random(this.leng);
@@ -73,14 +76,16 @@ var game = new Vue({
             game.links = response.links;
             game.linksBack = response.links;
             hilo.caminos.push(game.nombre)
-            game.pasos = hilo.caminos.length-1;
+            game.pasos = hilo.caminos.length - 1;
             game.load = false;
-            if(response.win == true){
+            if (response.win == true) {
               game.win = true;
               finalNombre = game.nombre;
               finalPasos = game.pasos;
-              finalUrl = "https://api.whatsapp.com/send?text=No%20hay%20huevos%20a%20encontrar%20a%20*"+finalNombre+"*%20en%20menos%20de%20*"+finalPasos+"*%20pasos%20en%20*https://wiki-hunt.herokuapp.com*";
-              game.finalUrl = finalUrl
+              TwitterUrl = "https://twitter.com/intent/tweet?text=No%20hay%20huevos%20a%20encontrar%20a%20" + finalNombre + "%20en%20menos%20de%20" + finalPasos + "%20pasos%20&url=https://wiki-hunt.herokuapp.com&hashtags=WikiHunt,Wikipedia,Reto,Juego";
+              game.TwitterUrl = TwitterUrl;
+              WhatsappUrl = "https://api.whatsapp.com/send?text=No%20hay%20huevos%20a%20encontrar%20a%20*" + finalNombre + "*%20en%20menos%20de%20*" + finalPasos + "*%20pasos%20en%20*https://wiki-hunt.herokuapp.com*";
+              game.WhatsappUrl = WhatsappUrl
             }
           });
         }
@@ -100,7 +105,7 @@ var game = new Vue({
       game.links = temp;
 
     },
-    loadMore: function(){
+    loadMore: function () {
       game.limit = game.info.length;
       game.info = game.info;
     }
