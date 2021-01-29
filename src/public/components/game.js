@@ -20,9 +20,9 @@ var game = new Vue({
       <h1 class="title">{{nombre}} <span class="load" v-if="load"><i class="fas fa-circle-notch fa-spin"></i></span></h1>    
       <div class="info">{{info.slice(0,limit)}}<button v-if="info.length > limit" v-on:click="loadMore()" class="btn btn-sm btn-link">load more</button></div>       
 
-      <hr class="my-3 mt-3">      
+      <hr class="my-3 mt-3" v-if="!win">      
 
-      <div class="input-group mb-3">
+      <div class="input-group mb-3" v-if="!win">
         <input v-model="term" type="text" class="form-control" placeholder="Link Search" v-on:keydown="filtrarLinks(term)">
         <!--<button class="btn btn-dark" type="button" v-on:click="filtrarLinks(term)"><i class="fas fa-search"></i></button>-->
         <!--<button class="btn btn-dark" type="button" v-on:click="filtrarLinks('')"><i class="fas fa-sync-alt"></i></button>-->
@@ -30,6 +30,9 @@ var game = new Vue({
 
       <div class="links"><ul><li v-for="link in links" v-on:click="buscar(link, leng)" v-scroll-to="'#top'">{{link}}</li></ul></div>
 
+      <div v-if="win">
+        <h3 class="title"> Has encontrado a {{nombre}} en {{pasos}}</h3>
+      </div>
     </div>`,
   data: {
     nombre: '',
@@ -40,7 +43,9 @@ var game = new Vue({
     load: true,
     leng: "es",
     show: false,
-    limit: '700'
+    limit: '700',
+    win: false,
+    pasos: ''
   },
   created() {
     random(this.leng);
@@ -60,7 +65,11 @@ var game = new Vue({
             game.links = response.links;
             game.linksBack = response.links;
             hilo.caminos.push(game.nombre)
+            game.pasos = hilo.caminos.length;
             game.load = false;
+            if(response.win == true){
+              game.win = true;
+            }
           });
         }
       });

@@ -23,7 +23,7 @@ var hilo = new Vue({
                 game.info = response.info;
                 game.links = response.links;
                 game.img = response.img;
-                hilo.caminos.push(game.nombre)
+                hilo.caminos.push(game.nombre);              
               });
             }
           });

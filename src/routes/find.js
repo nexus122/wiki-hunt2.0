@@ -146,8 +146,8 @@ router.get('/buscar/:leng/:id/:objective', async function (req, res) {
     if(similarity >= 0.7){
         console.log("Has ganado");
         var resp = {
-            nombre: "🥳 "+id+" 🥳",
-            info: 'Has ganado!',            
+            nombre: id,
+            info: '',            
             links: '',
             win: true
         }
