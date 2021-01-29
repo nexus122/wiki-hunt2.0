@@ -15,7 +15,7 @@ const election = new Vue({
                 </div>
             </div>               
         </div>
-        <h1 class="title">Busca uno tu mismo!</h1>
+        <h1 class="title mt-3">Busca uno tu mismo!</h1>
         <div class="input-group mb-3">
             <input v-model="objective" type="text" class="form-control" placeholder="A quien quieres buscar?">
             <button class="btn btn-dark" type="button" v-on:click="show(objective)"><i class="fas fa-search"></i></button>
