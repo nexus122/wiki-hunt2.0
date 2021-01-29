@@ -18,7 +18,7 @@ var game = new Vue({
     <div class="general" v-if="show">   
 
       <h1 class="title">{{nombre}} <span class="load" v-if="load"><i class="fas fa-circle-notch fa-spin"></i></span></h1>    
-      <div class="info">{{info.slice(0,limit)}}<button v-if="info.length > limit" v-on:click="loadMore()" class="btn btn-sm btn-link">load more</button></div>       
+      <div class="info" v-if="!win">{{info.slice(0,limit)}}<button v-if="info.length > limit" v-on:click="loadMore()" class="btn btn-sm btn-link">load more</button></div>       
 
       <hr class="my-3 mt-3" v-if="!win">      
 
@@ -28,10 +28,10 @@ var game = new Vue({
         <!--<button class="btn btn-dark" type="button" v-on:click="filtrarLinks('')"><i class="fas fa-sync-alt"></i></button>-->
       </div>
 
-      <div class="links"><ul><li v-for="link in links" v-on:click="buscar(link, leng)" v-scroll-to="'#top'">{{link}}</li></ul></div>
+      <div v-if="!win" class="links"><ul><li v-for="link in links" v-on:click="buscar(link, leng)" v-scroll-to="'#top'">{{link}}</li></ul></div>
 
       <div v-if="win">
-        <h3 class="title"> Has encontrado a {{nombre}} en {{pasos}}</h3>
+        <h3 class="title"> Has encontrado a {{nombre}} en {{pasos}} pasos !</h3>
       </div>
     </div>`,
   data: {
