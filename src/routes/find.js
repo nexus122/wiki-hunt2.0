@@ -121,7 +121,7 @@ router.get('/random/:leng', async function (req, res) {
     if (infoRes.data == "nodata") {
         infoRes = "";
     }
-    var linksRes = await links(encode_utf8(randomRes[0]), leng, 1000);
+    var linksRes = await links(encode_utf8(randomRes[0]), leng, 5000);
 
     var resp = {
         nombre: randomRes[0],
