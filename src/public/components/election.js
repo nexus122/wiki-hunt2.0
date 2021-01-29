@@ -16,10 +16,21 @@ Vue.use(VueScrollTo, {
 const election = new Vue({
     el: '#election',
     template: `
-    <div class="pt-5 pb-5" v-if="loadGame">                                               
-        <div class="general" v-for="personaje in personajes" style="margin-top: 6em;" >                                    
+    <div class="pt-5 pb-5" v-if="loadGame">    
+    <h1 class="title">Serias capaz de encontrar a <u>Adolf Hitler</u> desde <u> un testo de petunias</u>?</h1>
+    <h2>Elige tu objetivo, y el azar decidira desde donde tienes que buscarlo, encuentralo en el menor numero de pasos posibles y reta a tus amigos 😉</h2>
+    <hr class="mt-5 mb-5">
+    <h3 class="title mt-3">Quien sera tu objetivo?</h3>
+        <div class="input-group mb-3">
+            <input v-model="objective" type="text" class="form-control" placeholder="ej: Freddie Mercury">
+            <button v-scroll-to="'#top'" class="btn btn-dark" type="button" v-on:click="show(objective)">Jugar</button>
+        </div>   
+
+        <h3 class="title mt-5"> Para los indecisos hemos creado una lista</h3>
+
+        <div class="general mt-2" v-for="personaje in personajes">                                    
             <div class="row">
-                <div class="col col-12 col-md-2">
+                <div class="col col-12 col-sm-2">
                     <img v-bind:src="personaje.img" v-bind:alt="personaje.nombre" style="width: 100%">
                 </div>
                 <div class="col">
@@ -29,12 +40,7 @@ const election = new Vue({
                     <button v-scroll-to="'#top'" class="btn btn-dark d-block mt-3" v-on:click="show(personaje.nombre)">Jugar</button>                                
                 </div>
             </div>               
-        </div>
-        <h1 class="title mt-3">Busca uno tu mismo!</h1>
-        <div class="input-group mb-3">
-            <input v-model="objective" type="text" class="form-control" placeholder="A quien quieres buscar?">
-            <button v-scroll-to="'#top'" class="btn btn-dark" type="button" v-on:click="show(objective)"><i class="fas fa-search"></i></button>
-        </div>
+        </div>        
     </div>
 `,
     data: {
