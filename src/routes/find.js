@@ -46,7 +46,7 @@ function search(param, leng) {
 }
 
 function termsController(enlace) {
-    var arrControlTerms = ["archivo","anexo","issn","template","edit","wiki", "editar", "ayuda", "d:", "wikidata", "wikipedia", "especial", "(aún no redactado)", "portal", "commons", "page does not exist", "help", "desambiguation"];
+    var arrControlTerms = ["Artículo destacado","Existe una versión en audio de este artículo. Haz clic aquí para saber más","archivo","anexo","issn","template","edit","wiki", "editar", "ayuda", "d:", "wikidata", "wikipedia", "especial", "(aún no redactado)", "portal", "commons", "page does not exist", "help", "desambiguation"];
     var flag = 0;
     arrControlTerms.forEach(element => {
         if (enlace.toLowerCase().includes(element)) {

@@ -1,20 +1,40 @@
+/*Escritorio*/
+@media (min-width: 1199.98px)  {
+    .links ul{
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 1.1em;
+    }
+    .links li {
+        list-style: none;    
+        margin-left: 1em;
+        cursor: pointer;    
+        font-weight: 700;
+        font-size: 1.5em;
+    }
+}
+
+/*Fin Escritorio*/
 .title {
     font-family: 'Germania One', cursive;
 }
 
 .links ul{
-    display: flex;
-    flex-wrap: wrap;
-    /*justify-content:center;*/
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
     margin: 0;
     padding: 0;
 }
 
+.links {
+    padding-bottom: 2em;
+}
+
 .links li {
-    list-style: none;    
-    margin-left: 1em;
+    list-style: none;        
     cursor: pointer;    
     font-weight: 700;
+    font-size: 1.5em;
 }
 
 li.breadcrumb-item {

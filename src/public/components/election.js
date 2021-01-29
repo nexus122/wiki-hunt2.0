@@ -4,7 +4,7 @@ const election = new Vue({
     <div class="pt-5 pb-5">                                               
         <div class="general" v-for="personaje in personajes" style="margin-top: 6em;" v-if="loadGame">                                    
             <div class="row">
-                <div class="col col-sm-2">
+                <div class="col col-12 col-md-2">
                     <img v-bind:src="personaje.img" v-bind:alt="personaje.nombre" style="width: 100%">
                 </div>
                 <div class="col">
@@ -37,13 +37,19 @@ const election = new Vue({
                 nombre: "Blas de Lezo",
                 info: "Blas de Lezo y Olavarrieta (Pasajes, Guipúzcoa, 3 de febrero de 1689-Cartagena de Indias, Nueva Granada, 7 de septiembre de 1741) fue un almirante español —conocido por la singular estampa que le dieron sus numerosas heridas de guerra (un ojo tuerto, un brazo inmovilizado y una pierna arrancada)—,[1]​[nota 2]​ considerado uno de los mejores estrategas de la historia de la Armada Española[2]​ y conocido por dirigir, junto con el virrey Sebastián de Eslava, la defensa de Cartagena de Indias durante el asedio británico de 1741.",
                 img: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Don_Blas_de_Lezo_-Museo_Naval-.jpg",
-                categorias: ["político","histórico","artista"]    
+                categorias: ["político","histórico","genio de la pista"]    
             },
             {
                 nombre: "RuPaul",
                 info:`RuPaul Andre Charles (San Diego, California; 17 de noviembre de 1960), más conocido como RuPaul, es un drag queen, modelo, actor, cantante, compositor y presentador estadounidense. Desde 2009 ha producido y presentado el programa de telerrealidad llamado RuPaul's Drag Race por el cual recibió premios Primetime Emmy en 2016, 2017, 2018, 2019 y 2020. Es considerado el Drag Queen más exitoso en la historia de Estados Unidos.`,
                 img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/RuPaul_at_Dragcon_by_dvsross_%28cropped%29.jpg/220px-RuPaul_at_Dragcon_by_dvsross_%28cropped%29.jpg',
                 categorias: ["drag queen","artista","transformista"]
+            },
+            {
+                nombre: "Morgan Freeman",
+                info:`Morgan Freeman2​ (Memphis, 1 de junio de 1937) es un actor y director estadounidense, ganador del premio Óscar en 2005 por Million Dollar Baby. Además ha recibido otras nominaciones por sus actuaciones en El reportero de la calle 42 (1987), Paseando a Miss Daisy (1989), Cadena perpetua (1994) e Invictus (2009). También ha ganado los premios Globo de Oro y SAG.Su extensa carrera incluye otros éxitos de taquilla como Brubaker (1980), Sin perdón (1992), Tiempos de gloria (1989), Seven (1995), Deep Impact (1998), Pánico nuclear (2002), Bruce Almighty (2003), The Bucket List (2007), Wanted (2008), tres entregas de la saga de Batman (Batman Begins, 2005; The Dark Knight, 2008 y The Dark Knight Rises, 2012), Lucy (2014) y la comedia Ted 2 (2015). También se le recuerda como narrador de la serie documental de televisión Through the Wormhole.`,
+                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Academy_Award-winning_actor_Morgan_Freeman_narrates_for_the_opening_ceremony_%2826904746425%29_%28cropped%29.jpg/220px-Academy_Award-winning_actor_Morgan_Freeman_narrates_for_the_opening_ceremony_%2826904746425%29_%28cropped%29.jpg',
+                categorias: ["actor"]
             }
         ],
         loadGame: true,
