@@ -1,6 +1,7 @@
 const express = require('express');
 const cheerio = require('cheerio');
 const request = require('request');
+var stringSimilarity = require("string-similarity");
 const router = express.Router();
 
 /* Wiki.js */
@@ -138,7 +139,11 @@ router.get('/buscar/:leng/:id/:objective', async function (req, res) {
     let leng = req.params.leng;
     let id = req.params.id;
     let objective = req.params.objective;
-    if(id == objective){
+    var similarity = stringSimilarity.compareTwoStrings("healed", "sealed");
+    
+    console.log("similarity: ",similarity);
+
+    if(id.toLowerCase() == objective.toLowerCase()){
         console.log("Has ganado");
         var resp = {
             nombre: "Has Ganado 🥳",
