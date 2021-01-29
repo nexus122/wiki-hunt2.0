@@ -1,3 +1,17 @@
+Vue.use(VueScrollTo, {
+  container: "body",
+  duration: 200,
+  easing: "linear",
+  offset: 0,
+  force: true,
+  cancelable: true,
+  onStart: false,
+  onDone: false,
+  onCancel: false,
+  x: false,
+  y: true
+})
+
 var game = new Vue({
   el: '#game',
   template: `
@@ -14,7 +28,7 @@ var game = new Vue({
         <!--<button class="btn btn-dark" type="button" v-on:click="filtrarLinks('')"><i class="fas fa-sync-alt"></i></button>-->
       </div>
 
-      <div class="links"><ul><li v-for="link in links" v-on:click="buscar(link, leng)">{{link}}</li></ul></div>
+      <div class="links"><ul><li v-for="link in links" v-on:click="buscar(link, leng)" v-scroll-to="'#app'">{{link}}</li></ul></div>
 
     </div>`,
   data: {
