@@ -23,7 +23,7 @@ function search(param, leng) {
                     .then(page => page.summary())
                     .then(data => resolve(data))
                     .catch(err => {
-                        console.log("Error: ", err);
+                        //console.log("Error: ", err);
                         resolve({ data: "nodata" })
                     })
             } catch (e) {
@@ -35,7 +35,7 @@ function search(param, leng) {
                     .then(page => page.summary())
                     .then(data => resolve(data))
                     .catch(err => {
-                        console.log("Error: ", err);
+                        //console.log("Error: ", err);
                         resolve({ data: "nodata" })
                     })
             } catch (e) {
@@ -67,7 +67,7 @@ function links(termino, leng, limite) {
     return new Promise((resolve) => {
         request(`https://${leng}.wikipedia.org/wiki/${termino}`, (err, res, body) => {
             if (!err && res.statusCode == 200) {
-                console.log("URL: ", `https://${leng}.wikipedia.org/wiki/${termino}`);                
+                //console.log("URL: ", `https://${leng}.wikipedia.org/wiki/${termino}`);                
                 
                 /* Guardamos el cuerpo de la respuesta en el $ para poder utilizar jquery y seleccionar */
                 let $ = cheerio.load(body);
@@ -77,7 +77,7 @@ function links(termino, leng, limite) {
                     limite = $("#content a").length
                 }
 
-                console.log("Limite: ", limite);
+                //console.log("Limite: ", limite);
 
                 var arrLinks = [];
                                 
@@ -92,7 +92,7 @@ function links(termino, leng, limite) {
                     }
                 })
 
-                //console.log(arrLinks);
+                ////console.log(arrLinks);
                 resolve(arrLinks);
 
             }
@@ -116,7 +116,7 @@ router.get('/', (req, res) => {
 router.get('/random/:leng', async function (req, res) {
     let leng = req.params.leng;
     var randomRes = await random(leng)
-    console.log("Random: ", randomRes);
+    //console.log("Random: ", randomRes);
 
     var infoRes = await search(randomRes[0], leng);
     if (infoRes.data == "nodata") {
@@ -130,7 +130,7 @@ router.get('/random/:leng', async function (req, res) {
         links: linksRes,
     }
 
-    console.log("Respuesta: ", resp)
+    //console.log("Respuesta: ", resp)
     res.json(resp);
 });
 
@@ -141,10 +141,10 @@ router.get('/buscar/:leng/:id/:objective', async function (req, res) {
     let objective = req.params.objective;
     var similarity = stringSimilarity.compareTwoStrings(id, objective);
 
-    console.log(`ID: ${id} Objetivo: ${objective} Similitud: ${similarity}`);
+    //console.log(`ID: ${id} Objetivo: ${objective} Similitud: ${similarity}`);
 
     if(similarity >= 0.7){
-        console.log("Has ganado");
+        //console.log("Has ganado");
         var resp = {
             nombre: id,
             info: '',            
@@ -153,8 +153,8 @@ router.get('/buscar/:leng/:id/:objective', async function (req, res) {
         }
         res.json(resp);
     }else{
-        console.log(id);
-        console.log("Busqueda: ", id);
+        //console.log(id);
+        //console.log("Busqueda: ", id);
 
         var infoRes = await search(id, leng);
         if (infoRes.data == "nodata") {
@@ -168,7 +168,7 @@ router.get('/buscar/:leng/:id/:objective', async function (req, res) {
             links: linksRes,
             win: false
         }
-        console.log("Respuesta: ", resp)
+        //console.log("Respuesta: ", resp)
         res.json(resp);
     }
 });
