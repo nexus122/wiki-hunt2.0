@@ -144,6 +144,7 @@ router.get('/buscar/:leng/:id/:objective', async function (req, res) {
             nombre: "Has Ganado 🥳",
             info: '',            
             links: '',
+            win: true
         }
         res.json(resp);
     }else{
@@ -160,6 +161,7 @@ router.get('/buscar/:leng/:id/:objective', async function (req, res) {
             nombre: id,
             info: infoRes,
             links: linksRes,
+            win: false
         }
         console.log("Respuesta: ", resp)
         res.json(resp);
