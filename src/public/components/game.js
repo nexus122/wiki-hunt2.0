@@ -28,7 +28,7 @@ var game = new Vue({
         <!--<button class="btn btn-dark" type="button" v-on:click="filtrarLinks('')"><i class="fas fa-sync-alt"></i></button>-->
       </div>
 
-      <div class="links"><ul><li v-for="link in links" v-on:click="buscar(link, leng)" v-scroll-to="'#app'">{{link}}</li></ul></div>
+      <div class="links"><ul><li v-for="link in links" v-on:click="buscar(link, leng)" v-scroll-to="'#top'">{{link}}</li></ul></div>
 
     </div>`,
   data: {
