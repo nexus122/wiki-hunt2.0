@@ -36,7 +36,7 @@ var game = new Vue({
 
       <div v-if="win">
         <p class="title fs-3"> Has conseguido llegar desde <u>{{primero}}</u>  a <u>{{nombre}}</u> en solo <u>{{pasos}}</u> pasos !</p>
-        <p class="fs-4">Ayudame a que este juego llegue a mas gente retando a un amigo a hacerlo mejor que tu 😉</p>
+        <p class="fs-4">Ayúdame a que este juego llegue a más gente retando a un amigo a hacerlo mejor que tu 😉</p>
           <a class="btn btn-success d-block mt-1" v-bind:href="WhatsappUrl" target="_blank">Reta a tus amigos en <i class="fab fa-whatsapp"></i></a>
           <a class="btn btn-primary d-block mt-1" v-bind:href="TwitterUrl" target="_blank">Reta a tus amigos en <i class="fab fa-twitter"></i></a>
           <a class="btn btn-dark d-block mt-1" href="https://wiki-hunt.herokuapp.com" >Volver a Jugar</a>
