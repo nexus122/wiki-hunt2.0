@@ -139,7 +139,7 @@ router.get('/buscar/:leng/:id/:objective', async function (req, res) {
     let leng = req.params.leng;
     let id = req.params.id;
     let objective = req.params.objective;
-    var similarity = stringSimilarity.compareTwoStrings(id, objective);
+    var similarity = stringSimilarity.compareTwoStrings(id.toLowerCase(), objective.toLowerCase());
 
     //console.log(`ID: ${id} Objetivo: ${objective} Similitud: ${similarity}`);
 
