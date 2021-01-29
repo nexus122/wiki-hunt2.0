@@ -44,3 +44,7 @@ li.breadcrumb-item {
 .fa-circle-notch{
     font-size: 1em;
 }
+
+div#app {
+    margin-top: 3em;
+}

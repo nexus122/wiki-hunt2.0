@@ -69,6 +69,7 @@ const election = new Vue({
             console.log("Nombre: ", nombre);
             election.loadGame = false;
             election.objective = nombre;  
+            hunting.objective = nombre;
             game.show = true;
             hilo.show = true;          
         }
