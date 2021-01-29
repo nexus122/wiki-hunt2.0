@@ -48,3 +48,7 @@ li.breadcrumb-item {
 div#app {
     margin-top: 3em;
 }
+
+.general img {
+    filter: grayscale(100%);
+}
