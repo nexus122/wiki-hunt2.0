@@ -92,7 +92,7 @@ function links(termino, leng, limite) {
                     }
                 })
 
-                ////console.log(arrLinks);
+                //console.log(arrLinks);
                 resolve(arrLinks);
 
             }
