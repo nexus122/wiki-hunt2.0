@@ -143,7 +143,7 @@ router.get('/buscar/:leng/:id/:objective', async function (req, res) {
 
     console.log(`ID: ${id} Objetivo: ${objective} Similitud: ${similarity}`);
 
-    if(similarity > 0.8){
+    if(similarity >= 0.7){
         console.log("Has ganado");
         var resp = {
             nombre: "🥳 "+id+" 🥳",
