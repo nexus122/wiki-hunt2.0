@@ -140,14 +140,14 @@ router.get('/buscar/:leng/:id/:objective', async function (req, res) {
     let id = req.params.id;
     let objective = req.params.objective;
     var similarity = stringSimilarity.compareTwoStrings("healed", "sealed");
-    
+
     console.log("similarity: ",similarity);
 
-    if(id.toLowerCase() == objective.toLowerCase()){
+    if(stringSimilarity.compareTwoStrings(id, objective) > 0.9){
         console.log("Has ganado");
         var resp = {
-            nombre: "Has Ganado 🥳",
-            info: '',            
+            nombre: +"🥳 "+id+" 🥳",
+            info: 'Has ganado!',            
             links: '',
             win: true
         }

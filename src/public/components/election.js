@@ -1,8 +1,8 @@
 const election = new Vue({
     el: '#election',
     template: `
-    <div class="pt-5 pb-5">                                               
-        <div class="general" v-for="personaje in personajes" style="margin-top: 6em;" v-if="loadGame">                                    
+    <div class="pt-5 pb-5" v-if="loadGame">                                               
+        <div class="general" v-for="personaje in personajes" style="margin-top: 6em;" >                                    
             <div class="row">
                 <div class="col col-12 col-md-2">
                     <img v-bind:src="personaje.img" v-bind:alt="personaje.nombre" style="width: 100%">
