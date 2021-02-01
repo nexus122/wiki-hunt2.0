@@ -20,7 +20,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Google Adsense -->
-    <script data-ad-client="ca-pub-6837931356637553" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-6837931356637553" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -67,7 +68,7 @@
         <!-- Camino -->
         <div id="hilo"></div>
         <!-- Juego -->
-        <div id="game"></div>        
+        <div id="game"></div>
     </div>
 
     <div id="footerInfo"></div>
@@ -89,6 +90,80 @@
 
     <!-- Seccion Contacto -->
     <script src="./components/footer.js"></script>
+
+    <!-- Texto para que mi amiguito se divierta -->
+    <hr>
+    <article class="container pb-5 articulo">
+        <h2> Que es Wikihunt? </h2>
+        <section>
+            <h3>Primera versión</h3>
+            <p>
+                Wikihunt es un proyecto que he iniciado para aprender a utilizar node.js y el web scraping.
+                En un principio planeaba hacer un bot que se dedicar a aterrizar en una pagina al azar de wikipedia y
+                saltar
+                entre los enlaces internos,
+                en cuanto cargara una pagina, miraría todos los enlaces elegiría uno al azar y saltaría a otra.
+            </p>
+            <p>
+                Una cosa llevo a la otra y descubrí lo divertido que era proponerse buscar a alguien desde una pagina al
+                azar de wikipedia, entonces cree la interfaz gráfica muy básica para poder hacerlo de forma cómoda.
+                tu decías a quien querías buscar, luego ibas a una de estas paginas aleatorias y tenias que ir navegando
+                por
+                los enlaces hasta encontrarlo, y eso me pareció mucho mas divertido que programar el bot automatico y
+                aquí
+                estamos.
+            </p>
+        </section>
+        <section>
+            <h3>Un juego mas limitado</h3>
+            <p>
+                En la primera versioón solo podías buscar a Hitler, por eso la tipografía de
+                wikihunt es la Germania One de Google Fonts, era bastante difícil encontrarlo hasta que le pillabas el
+                truco.
+                Y antes de que pienses que me había dado un incipiente ataque de nacionalsocialismo, elegí a este
+                personaje
+                tan característico porque mas o menos todo el mundo lo conoce. Y a los aficionados de la historia les
+                encanta dar vueltas por años, batallas, guerras mundiales etc...
+                así que me pareció de calle la mejor opción.
+            </p>
+
+            <p>
+                El primer motor de WikiHunt se encallaba y tenia algunos callejones sin salida, pero tenia su
+                encanto, hasta tenia un ranking en el que apuntar tu puntuación, las siguientes versiones cambiaron la
+                interfaz gráfica pero utilizaban el mismo motor, un node.js que lo scrapeaba todo de wikipedia. era algo
+                lento si lo utilizaban varias personas a la vez.
+            </p>
+        </section>
+        <section>
+            <h3>Segunda version</h3>
+            <p>
+                La segunda version es <a href="https://juanpabloromeropereira.es/WikiHunt">esta</a> 
+                la interfaz esta creada con Angular, que es un framework de JS y con Tailwind, que es un framework de css, la idea era ampliar el numero de personajes disponibles para buscar,
+                y darle otra estética mas "profesional". Ademas de hacerlo mucho mas compatible con móvil, porque al promocionar la pagina por Instagram todo el mundo acabo accediendo por el móvil, de forma que hice las enlaces algo mas grandes para poder pulsarlos mejor.
+            </p>
+            <p>
+                El funcionamiento y el motor eran el mismo de la primera versión, pero quería volver a utilizar Angular y se me ocurrió que seria mas ordenado hacerlo así que con simple html y css, esto me llevo crear algunas
+                cosas
+                nuevas
+                como un selector de personajes mas dinámico, una pantalla que muestra mejor la puntuación que llevas,
+                una
+                pantalla de victoria mas trabajada y con botones para compartirlo en redes sociales.
+                todo estaba listo, pero no obtuvo muchos jugadores.
+                El juego cada vez caía mas en el olvido, tanto de los jugadores como el mio, y en parte se debe a que no
+                conseguí monetizar la pagina.
+            </p>
+        </section>
+        <section>
+            <h3>Monetizacion, la eterna frustracion</h3>
+            <p>
+                Si estoy escribiendo este ladrillo, lo adivinaste, es por ti google de mi corazon, nunca he conseguido monetizar esta pagina web, porque google me la tiene jurada, y dice que esta pagina no tiene contenido.
+                Esto lo dice porque el contenido de esta pagina se genera de forma dinamica, ya que es un juego, y no un articulo en si, al scrapear el contenido, cuando entra el robot de google no ecuentra nada, y piensa que es una pagina vacia y sin valor.
+                Que podemos debatir la calidad del juego, pero contenido hay! ahora en un rato hare el segundo intento de que me aprueben el contenido con todo este texto escrito en el index, y si no tendre que idear alguna otra estrategia, perdona ser humano si te has leido todo esto
+                pero asi seguro que entiendes un poquito mas mi frustracion, pues eso, a jugar!                
+            </p>
+        </section>
+
+    </article>
 
 </body>
 

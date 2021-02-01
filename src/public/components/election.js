@@ -83,15 +83,14 @@ const election = new Vue({
             },
             {
                 nombre: "Donald Trump",
-                info:`Donald John Trump (pronunciación en inglés: /ˈdɒnəld d͡ʒɒn trʌmp/ ( escuchar); Nueva York, 14 de junio de 1946) es un magnate, empresario, director ejecutivo, inversor en bienes raíces, personalidad televisiva y político estadounidense que ejerció como el 45.º presidente de los Estados Unidos de América desde el 20 de enero de 2017 hasta el 20 de enero de 2021.2​`,
+                info:`Donald John Trump Nueva York, 14 de junio de 1946 es un magnate, empresario, director ejecutivo, inversor en bienes raíces, personalidad televisiva y político estadounidense que ejerció como el 45.º presidente de los Estados Unidos de América desde el 20 de enero de 2017 hasta el 20 de enero de 2021.2​`,
                 img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/220px-Donald_Trump_official_portrait.jpg',
                 categorias: ["presidente","historico"],
                 dificultad: 1
             }
         ],
         loadGame: true,
-        objective: "",
-        objective: ''
+        objective: ""
     },methods: {
         show: function (nombre) {
             window.scrollTo(0, 0);
