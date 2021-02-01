@@ -27,20 +27,21 @@ const election = new Vue({
         </div>   
 
         <h3 class="title mt-5"> Para los indecisos hemos creado una lista</h3>
-
+        <div class="contenedor">
         <div class="general mt-2" v-for="personaje in personajes">                                    
             <div class="row">
-                <div class="col col-12 col-sm-2">
-                    <img v-bind:src="personaje.img" v-bind:alt="personaje.nombre" style="width: 100%">
-                </div>
-                <div class="col">
-                <h1 class="title">{{personaje.nombre}} <span class="load" v-if="load"><i class="fas fa-circle-notch fa-spin"></i></span></h1> 
-                    <!--<div class="d-inline"><span v-for="categoria in personaje.categorias" class="badge rounded-pill bg-dark" style="margin-right: 1em;">{{categoria}}</span></div>-->
-                    <div class="info mt-2">{{personaje.info.slice(0,400)}}...</div>                                      
-                    <button v-scroll-to="'#top'" class="btn btn-dark d-block mt-3" v-on:click="show(personaje.nombre)">Jugar</button>                                
-                </div>
-            </div>               
-        </div>        
+                    <div class="col col-12 col-sm-2">
+                        <img v-bind:src="personaje.img" v-bind:alt="personaje.nombre" style="width: 100%">
+                    </div>
+                    <div class="col">
+                    <h1 class="title">{{personaje.nombre}} <span class="load" v-if="load"><i class="fas fa-circle-notch fa-spin"></i></span></h1> 
+                        <!--<div class="d-inline"><span v-for="categoria in personaje.categorias" class="badge rounded-pill bg-dark" style="margin-right: 1em;">{{categoria}}</span></div>-->
+                        <div class="info mt-2">{{personaje.info.slice(0,400)}}...</div>                                      
+                        <button v-scroll-to="'#top'" class="btn btn-dark d-block mt-3" v-on:click="show(personaje.nombre)">Jugar</button>                                
+                    </div>
+                </div>               
+            </div>   
+        </div>     
     </div>
 `,
     data: {

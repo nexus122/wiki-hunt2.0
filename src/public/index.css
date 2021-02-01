@@ -12,6 +12,16 @@
         font-weight: 700;
         font-size: 1.5em;
     }
+
+    /* Footer de la pagina */
+    footer.footer {
+        position: fixed;
+        bottom: 0;
+        padding: 1em;
+        background: #212529;
+        width: 100%;
+        text-align: end;
+    }
 }
 
 /*Fin Escritorio*/
@@ -51,4 +61,23 @@ div#app {
 
 .general img {
     filter: grayscale(100%);
+}
+
+/* Paddin de election para que no choque con el footer */
+.contenedor {
+    padding-bottom: 5em;
+}
+
+/* Footer de la pagina */
+footer.footer {
+    position: fixed;
+    bottom: 0;
+    padding: 1em;
+    background: #212529;
+    width: 100%;
+    text-align: center;
+}
+
+.links {
+    padding-bottom: 8em;
 }

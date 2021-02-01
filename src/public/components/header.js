@@ -1,6 +1,7 @@
 var header = new Vue({
-    el: '#header',
-    template: `
+  el: '#header',
+  template: `
+  <head>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand title" href="#">{{title}}</a>
@@ -16,9 +17,10 @@ var header = new Vue({
     </div>
   </div>
 </nav>
+</head>
 `,
-    data: {
-        title: 'Wikihunt 2.0'
-    }
+  data: {
+    title: 'Wikihunt 2.0'
+  }
 })
 
