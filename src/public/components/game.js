@@ -82,9 +82,9 @@ var game = new Vue({
               game.win = true;
               finalNombre = game.nombre;
               finalPasos = game.pasos;
-              TwitterUrl = "https://twitter.com/intent/tweet?text=No%20hay%20huevos%20a%20encontrar%20a%20" + finalNombre + "%20en%20menos%20de%20" + finalPasos + "%20pasos%20&url=https://wiki-hunt.herokuapp.com&hashtags=WikiHunt,Wikipedia,Reto,Juego";
+              TwitterUrl = {es:"https://twitter.com/intent/tweet?text=No%20hay%20huevos%20a%20encontrar%20a%20" + finalNombre + "%20en%20menos%20de%20" + finalPasos + "%20pasos%20&url=https://wiki-hunt.herokuapp.com&hashtags=WikiHunt,Wikipedia,Reto,Juego",en:`"https://twitter.com/intent/tweet?text=No%20balls%20to%20find%20 + finalNombre + "%20in%20less%20than%20" + finalPasos + "%20steps%20&url=https://wiki-hunt.herokuapp.com&hashtags=WikiHunt,Wikipedia,challenge,game"`};
               game.TwitterUrl = TwitterUrl;
-              WhatsappUrl = "https://api.whatsapp.com/send?text=No%20hay%20huevos%20a%20encontrar%20a%20*" + finalNombre + "*%20en%20menos%20de%20*" + finalPasos + "*%20pasos%20en%20*https://wiki-hunt.herokuapp.com*";
+              WhatsappUrl = {es:"https://api.whatsapp.com/send?text=No%20hay%20huevos%20a%20encontrar%20a%20*" + finalNombre + "*%20en%20menos%20de%20*" + finalPasos + "*%20pasos%20en%20*https://wiki-hunt.herokuapp.com*",en:`https://api.whatsapp.com/send?text=No%20balls%20to%20find%20*" + finalNombre + "*%20in%20less%20than%20*" + finalPasos + "*%20steps%20on%20*https://wiki-hunt.herokuapp.com*`};
               game.WhatsappUrl = WhatsappUrl
             }
           });
