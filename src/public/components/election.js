@@ -17,10 +17,10 @@ const election = new Vue({
     el: '#election',
     template: `
     <div class="pt-5 pb-5" v-if="loadGame">    
-    <h1 class="title">¿Serías capaz de encontrar a <u>Adolf Hitler</u> desde <u>un tiesto de petunias</u>?</h1>
-    <h2>Elige tu objetivo, y el azar decidirá desde donde tienes que buscarlo, encuéntralo en el menor número de pasos posibles y reta a tus amigos 😉</h2>
+    <h1 class="title" v-html="idiomas.titulo[leng]"></h1>
+    <h2 v-html="idiomas.subtitulo[leng]"></h2>
     <hr class="mt-5 mb-5">
-    <h3 class="title mt-3">¿Quien será tu objetivo?</h3>
+    <h3 class="title mt-3" v-html="idiomas.objetivo[leng]">¿Quien será tu objetivo?</h3>
         <div class="input-group mb-3">
             <input v-model="objective" type="text" class="form-control" placeholder="ej: Freddie Mercury">
             <button v-scroll-to="'#top'" class="btn btn-dark" type="button" v-on:click="show(objective)">Jugar</button>
@@ -90,7 +90,14 @@ const election = new Vue({
             }
         ],
         loadGame: true,
-        objective: ""
+        objective: ``,
+        leng: `en`,
+        idiomas:{
+            titulo: {es:`¿Serías capaz de encontrar a <u>Adolf Hitler</u> desde <u>un tiesto de petunias</u>?`, en: `Would you be able to find <u>Adolf Hitler</u> from <u>a pot of petunias</u>?` },
+            subtitulo: {es:`Elige tu objetivo, y el azar decidirá desde donde tienes que buscarlo, encuéntralo en el menor número de pasos posibles y reta a tus amigos 😉`, en: `Choose your target, and chance will decide from where you have to look for it, find it in as few steps as possible and challenge your friends 😉.`},
+            objetivo: {es: `¿Quien será tu objetivo?`, en: `Who will be your target?`} ,
+            instruction1: {es: `Para los indecisos hemos creado una lista`, en: `For the undecided we have created a list` }
+        }
     },methods: {
         show: function (nombre) {
             window.scrollTo(0, 0);
