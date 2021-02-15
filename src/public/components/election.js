@@ -16,7 +16,13 @@ Vue.use(VueScrollTo, {
 const election = new Vue({
     el: '#election',
     template: `
-    <div class="pt-5 pb-5" v-if="loadGame">    
+    <div class="pt-5 pb-5" v-if="loadGame">
+    
+    <div class="btn-group mb-3" role="group" aria-label="Basic example">
+        <button type="button" class="es btn btn-dark" v-on:click="leng='es'; lengEs()">Español</button>
+        <button type="button" class="en btn btn-secondary" v-on:click="leng='en'; lengEn()">English</button>        
+    </div>
+    
     <h1 class="title" v-html="idiomas.titulo[leng]"></h1>
     <h2 v-html="idiomas.subtitulo[leng]"></h2>
     <hr class="mt-5 mb-5">
@@ -114,6 +120,13 @@ const election = new Vue({
             game.show = true;
             hilo.show = true;          
             random(this.leng);
+        },
+        lengEs(){
+            $(".es").removeClass("btn-secondary").addClass("btn-dark");
+            $(".en").removeClass("btn-dark").addClass("btn-secondary");
+        },lengEn(){
+            $(".en").removeClass("btn-secondary").addClass("btn-dark");
+            $(".es").removeClass("btn-dark").addClass("btn-secondary");
         }
       }
 })
