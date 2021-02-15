@@ -59,7 +59,7 @@ var game = new Vue({
     TwitterUrl
   },
   created() {
-    random(this.leng);
+    
   }, methods: {
     buscar: function (termino, leng) {
       game.load = true;

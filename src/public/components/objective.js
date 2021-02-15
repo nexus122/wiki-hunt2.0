@@ -1,12 +1,11 @@
 var hunting = new Vue({
     el: '#objectivePanel',
     template: `
-    <h1 v-if="objective != ''" class="title text-center">{{phrase}} {{objective}}</h1>
+    <h1 v-if="objective != ''" class="title text-center">{{phrase[leng]}} {{objective}}</h1>
 `,
     data: {
         objective: '',
-        phrase: 'Estas Buscando a'        
+        leng: ``,
+        phrase: {es:'Estas Buscando a',en:'You are looking for'}        
     }
 })
-
-
