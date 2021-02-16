@@ -35,11 +35,11 @@ var game = new Vue({
       <div v-if="!win" class="links"><ul><li v-for="link in links" v-on:click="buscar(link, leng)" v-scroll-to="'#top'">{{link}}</li></ul></div>
 
       <div v-if="win">
-        <p class="title fs-3"> Has conseguido llegar desde <u>{{primero}}</u>  a <u>{{nombre}}</u> en solo <u>{{pasos}}</u> pasos !</p>
-        <p class="fs-4">Ayúdame a que este juego llegue a más gente retando a un amigo a hacerlo mejor que tu 😉</p>
-          <a class="btn btn-success d-block mt-1" v-bind:href="WhatsappUrl" target="_blank">Reta a tus amigos en <i class="fab fa-whatsapp"></i></a>
-          <a class="btn btn-primary d-block mt-1" v-bind:href="TwitterUrl" target="_blank">Reta a tus amigos en <i class="fab fa-twitter"></i></a>
-          <a class="btn btn-dark d-block mt-1" href="https://wiki-hunt.herokuapp.com" >Volver a Jugar</a>
+        <p class="title fs-3" v-html="idiomas.victoria[leng]"></p>
+        <p class="fs-4">{{idiomas.reto[leng]}}</p>
+          <a class="btn btn-success d-block mt-1" v-bind:href="WhatsappUrl[leng]" target="_blank">{{idiomas.whatsapp[leng]}}<i class="fab fa-whatsapp"></i></a>
+          <a class="btn btn-primary d-block mt-1" v-bind:href="TwitterUrl[leng]" target="_blank">{{idiomas.twitter[leng]}}<i class="fab fa-twitter"></i></a>
+          <a class="btn btn-dark d-block mt-1" href="https://wiki-hunt.herokuapp.com" >{{idiomas.replay[leng]}}</a>
       </div>
     </div>`,
   data: {
@@ -56,7 +56,14 @@ var game = new Vue({
     pasos: '',
     primero: '',
     WhatsappUrl: '',
-    TwitterUrl
+    TwitterUrl,
+    idiomas:{
+      victoria:{es:"Has conseguido llegar desde <u>"+primero+"</u> a <u>"+nombre+"</u> en solo <u>"+pasos+"</u> pasos !",en:"You have made it from <u>"+primero+"</u> to <u>"+nombre+"</u> in just <u>"+pasos+"</u> steps!</u>"},
+      reto:{es:"Ayúdame a que este juego llegue a más gente retando a un amigo a hacerlo mejor que tu 😉", en:"Help me get this game to reach more people by challenging a friend to do better than you 😉"},
+      whatsapp:{es:"Reta a tus amigos en", en: "Challenge your friends in"},
+      twitter:{es:"Reta a tus amigos en " , en:"Challenge your friends in"},
+      replay:{es:"Volver a Jugar" , en:"Back to Play"}
+    }
   },
   created() {
     
@@ -78,11 +85,12 @@ var game = new Vue({
             hilo.caminos.push(game.nombre)
             game.pasos = hilo.caminos.length - 1;
             game.load = false;
+            
             if (response.win == true) {
               game.win = true;
               finalNombre = game.nombre;
               finalPasos = game.pasos;
-              TwitterUrl = {es:"https://twitter.com/intent/tweet?text=No%20hay%20huevos%20a%20encontrar%20a%20" + finalNombre + "%20en%20menos%20de%20" + finalPasos + "%20pasos%20&url=https://wiki-hunt.herokuapp.com&hashtags=WikiHunt,Wikipedia,Reto,Juego",en:`"https://twitter.com/intent/tweet?text=No%20balls%20to%20find%20 + finalNombre + "%20in%20less%20than%20" + finalPasos + "%20steps%20&url=https://wiki-hunt.herokuapp.com&hashtags=WikiHunt,Wikipedia,challenge,game"`};
+              TwitterUrl = {es:"https://twitter.com/intent/tweet?text=No%20hay%20huevos%20a%20encontrar%20a%20" + finalNombre + "%20en%20menos%20de%20" + finalPasos + "%20pasos%20&url=https://wiki-hunt.herokuapp.com&hashtags=WikiHunt,Wikipedia,Reto,Juego",en:"https://twitter.com/intent/tweet?text=No%20balls%20to%20find%20" + finalNombre + "%20in%20less%20than%20" + finalPasos + "%20steps%20&url=https://wiki-hunt.herokuapp.com&hashtags=WikiHunt,Wikipedia,challenge,game"};
               game.TwitterUrl = TwitterUrl;
               WhatsappUrl = {es:"https://api.whatsapp.com/send?text=No%20hay%20huevos%20a%20encontrar%20a%20*" + finalNombre + "*%20en%20menos%20de%20*" + finalPasos + "*%20pasos%20en%20*https://wiki-hunt.herokuapp.com*",en:`https://api.whatsapp.com/send?text=No%20balls%20to%20find%20*" + finalNombre + "*%20in%20less%20than%20*" + finalPasos + "*%20steps%20on%20*https://wiki-hunt.herokuapp.com*`};
               game.WhatsappUrl = WhatsappUrl
