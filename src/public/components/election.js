@@ -19,8 +19,8 @@ const election = new Vue({
     <div class="pt-5 pb-5" v-if="loadGame">
     
     <div class="btn-group mb-3" role="group" aria-label="Basic example">
-        <button type="button" class="es btn btn-dark" v-on:click="leng='es'; lengEs()">Español</button>
-        <button type="button" class="en btn btn-secondary" v-on:click="leng='en'; lengEn()">English</button>        
+        <button type="button" class="en btn btn-dark" v-on:click="leng='en'; lengEn()">English</button>        
+        <button type="button" class="es btn btn-secondary" v-on:click="leng='es'; lengEs()">Español</button>        
     </div>
     
     <h1 class="title" v-html="idiomas.titulo[leng]"></h1>
@@ -97,7 +97,7 @@ const election = new Vue({
         ],
         loadGame: true,
         objective: ``,
-        leng: `es`,
+        leng: `en`,
         idiomas:{
             titulo: {es:`¿Serías capaz de encontrar a <u>Adolf Hitler</u> desde <u>un tiesto de petunias</u>?`, en: `Would you be able to find <u>Adolf Hitler</u> from <u>a pot of petunias</u>?` },
             subtitulo: {es:`Elige tu objetivo, y el azar decidirá desde donde tienes que buscarlo, encuéntralo en el menor número de pasos posibles y reta a tus amigos 😉`, en: `Choose your target, and chance will decide from where you have to look for it, find it in as few steps as possible and challenge your friends 😉.`},

@@ -49,7 +49,7 @@ var game = new Vue({
     linksBack: '',
     term: '',
     load: true,
-    leng: "es",
+    leng: "en",
     show: false,
     limit: '700',
     win: false,
